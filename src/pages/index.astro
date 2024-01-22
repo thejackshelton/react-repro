@@ -1,0 +1,32 @@
+---
+import { QReactCounter } from "@components/react/counter";
+import { QCounter } from '@components/qwik/counter'
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>Astro</h1>
+
+		{/* Something to try, might be nesting Qwik components with React components, or vice versa. */}
+		<QCounter />
+
+
+		{
+			/* Inside of .astro files use the qwik: prefix.  
+		
+			This is because it would otherwise conflict with Astro's hydration directives.
+
+			Feel free to use client:* in Qwik files. You can even hydrate the counter on hover with qwik:hover!
+
+			qwik:visible, qwik:load, etc.
+		*/}
+		<QReactCounter qwik:hover />
+	</body>
+</html>
